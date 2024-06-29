@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: labseq
+  cache:
+    type: simple
+
+server:
+  port: 8091
+
+springdoc:
+  api-docs:
+    path: /swagger

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Labseq Calculator</title>
+<script>
+    async function findLabseq() {
+        const n = document.getElementById('num').value;
+        const response = await fetch(`/labseq/${n}`);
+        const data = await response.text();
+        document.getElementById('result').textContent = `l(${n}) = ${data}`;
+    }
+</script>
+</head>
+<body>
+<h1>Labseq</h1>
+<label for="num">Enter a number: </label>
+<input type="number" id="num" min="0">
+<button onclick="findLabseq()">Calculate</button>
+<p id="result"></p>
+</body>
+</html>
