@@ -18,6 +18,8 @@ public class GlobalExceptionHandler {
                 .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
                 .build();
 
+        logError(exception);
+
         return ResponseEntity.status(dto.getStatusCode()).body(dto);
     }
 
@@ -28,6 +30,15 @@ public class GlobalExceptionHandler {
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .build();
 
+        logError(exception);
+
         return ResponseEntity.status(dto.getStatusCode()).body(dto);
+    }
+
+    private void logError(Exception exception) {
+        StackTraceElement[] stackTraceElements = exception.getStackTrace();
+        for (StackTraceElement element : stackTraceElements) {
+            System.err.println(element);
+        }
     }
 }
