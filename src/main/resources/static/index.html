@@ -7,16 +7,16 @@
     async function findLabseq() {
         const n = document.getElementById('num').value;
         const response = await fetch(`/labseq/${n}`);
-        const data = await response.text();
-        document.getElementById('result').textContent = `l(${n}) = ${data}`;
+        const data = await response.json();
+        document.getElementById('result').textContent = `labseq(${data.key}) = ${data.value}`;
     }
 </script>
 </head>
 <body>
-<h1>Labseq</h1>
-<label for="num">Enter a number: </label>
-<input type="number" id="num" min="0">
-<button onclick="findLabseq()">Calculate</button>
-<p id="result"></p>
+    <h1>Labseq - Ronald</h1>
+    <label for="num">Enter a number: </label>
+    <input type="number" id="num" min="0">
+    <button onclick="findLabseq()">Calculate</button>
+    <h4><p id="result"></p></h4>
 </body>
 </html>

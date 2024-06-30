@@ -20,7 +20,9 @@ public class GlobalExceptionHandler {
 
         logError(exception);
 
-        return ResponseEntity.status(dto.getStatusCode()).body(dto);
+        return ResponseEntity
+                .status(dto.getStatusCode())
+                .body(dto);
     }
 
     @ExceptionHandler(InvalidValueException.class)
@@ -32,7 +34,9 @@ public class GlobalExceptionHandler {
 
         logError(exception);
 
-        return ResponseEntity.status(dto.getStatusCode()).body(dto);
+        return ResponseEntity
+                .status(dto.getStatusCode())
+                .body(dto);
     }
 
     private void logError(Exception exception) {
