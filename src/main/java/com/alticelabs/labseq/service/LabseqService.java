@@ -17,7 +17,7 @@ public class LabseqService {
                 .build();
     }
 
-    public int calculate(int n) {
+    private int calculate(int n) {
         Optional<Integer> num = MyCache.getInstance().getNum(n);
         if(num.isPresent()) {
             return num.get();
